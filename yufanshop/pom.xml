@@ -192,6 +192,7 @@
     <modules>
         <module>core</module>
         <module>admin</module>
+        <module>front</module>
     </modules>
 
 </project>
