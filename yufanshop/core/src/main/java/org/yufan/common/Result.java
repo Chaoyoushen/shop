@@ -3,6 +3,14 @@ package org.yufan.common;
 public class Result<T> {
 
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     /**
      * 状态  1.success 2.fail
      */
@@ -24,13 +32,7 @@ public class Result<T> {
      */
     private T data;
 
-    public String getStatus() {
-        return status;
-    }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
 
     public String getMessage() {
         return message;
