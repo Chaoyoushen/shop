@@ -29,7 +29,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 
 		<!-- 加载mybatis的配置文件 -->
 		<property name="configLocation" value="classpath:SqlMapConfig.xml" />
-
+		<!--集成分页助手-->
 		<property name="plugins">
 			<array>
 				<bean class="com.github.pagehelper.PageInterceptor">

@@ -10,5 +10,5 @@ public interface ItemService extends BaseService<Item>{
 
     public void updateItem(Item item, String desc);
 
-    public void updateItemStatus(@RequestParam("ids") Long[] ids, int status);
+    public void updateItemStatus(@RequestParam("ids ") Long[] ids, int status);
 }
