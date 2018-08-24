@@ -24,7 +24,7 @@
 </head>
 <body id="mainframe">
 <!--shortcut start-->
-<jsp:include page="../commons/shortcut.jsp" />
+<jsp:include page="../WEB-INF/commons/shortcut.jsp" />
 <!--shortcut end-->
 	<form id="orderForm" class="hide">
 		<input type="hidden" name="paymentType" value="1"/>
@@ -44,7 +44,7 @@
 		<input type="hidden" name="orderShipping.receiverAddress" value="三鲁公路3279号 明浦广场 3号楼 205室 "/>
 	</form>
 	<div class="w w1 header clearfix">
-		<div id="logo"><a href="http://www.yufan.com/"><img src="/images/yufan-logo.gif"  alt="羽帆商城" /></a></div>
+		<div id="logo"><a href="http://www.yufan.com/"><img src="/images/yufan-logo.gif" alt="羽帆商城" /></a></div>
 		<div class="progress clearfix">
 			<ul class="progress-2">
 				<li class="s1"><b></b>1.我的购物车</li>
@@ -302,7 +302,7 @@
    <div class="w">
 
 	<!-- links start -->
-    <jsp:include page="../commons/footer-links.jsp"></jsp:include>
+    <jsp:include page="../WEB-INF/commons/footer-links.jsp"></jsp:include>
     <!-- links end -->
 </div><!-- footer end -->
 	<script type="text/javascript" src="/js/order.js"></script>

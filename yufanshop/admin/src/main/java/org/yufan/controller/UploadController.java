@@ -28,7 +28,7 @@ public class UploadController {
 
 
             //上传文件的路径
-            String path = "D:\\study\\cdut\\image";
+            String path = "//usr//local//yufanimage";
 
             //获取后缀
             String filename = uploadFile.getOriginalFilename();
@@ -47,7 +47,7 @@ public class UploadController {
         if(image!=null){
 
             //上传成功!
-            return PicUploadResult.buildSuccess("http://image.chaoy.com/"+uuid_name,image.getWidth()+"",image.getHeight()+"");
+            return PicUploadResult.buildSuccess("http://image.yufan.com/"+uuid_name,image.getWidth()+"",image.getHeight()+"");
         }else{
             return PicUploadResult.buildFail("图片上传失败");
         }

@@ -12,7 +12,7 @@
 
        
        <!-- 配置扫描包 -->
-       <context:component-scan base-package="org.yufan.rest.controller"/>
+       <context:component-scan base-package="org.yufan.sso.controller"/>
 
 
        
@@ -28,13 +28,13 @@
          </bean>
 
     <!--配置全局异常处理器-->
-    <bean class="org.yufan.exception.CustomerHandlerException"></bean>
+    <bean class="org.yufan.exception.MyException"></bean>
 
-       <!-- 配置视图解析器-->
+       <!-- 配置视图解析器
        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-           <property name="prefix" value="/views/"/>
+           <property name="prefix" value="/WEB-INF/views/"/>
            <property name="suffix" value=".jsp"/>
-       </bean>
+       </bean>-->
 
 
 

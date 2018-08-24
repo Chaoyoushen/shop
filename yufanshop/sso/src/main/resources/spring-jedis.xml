@@ -1,0 +1,27 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!--配置连接池-->
+    <bean id="JedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxTotal" value="30"/>
+        <property name="maxWaitMillis" value="1500"/>
+    </bean>
+
+    <!--配置jedis连接池-->
+    <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+        <constructor-arg name="host" value="132.232.86.173"/>
+        <constructor-arg name="port" value="6379"/>
+        <constructor-arg name="poolConfig" ref="JedisPoolConfig"/>
+    </bean>
+
+    <!--配置jedisService
+    <bean id="jeidsService" class="org.yufan.sso.service.impl.JedisServiceImpl">
+        <property name="jedisPool" ref="jedisPool"/>
+    </bean>
+    -->
+
+</beans>

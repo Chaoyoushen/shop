@@ -5,16 +5,20 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
+	<!-- 配置加properties文件
+	<context:property-placeholder location="classpath:jdbc.properties" /> -->
+
+	<!-- 配置数据库连接池 -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
 		<property name="driver"><bean class="com.mysql.jdbc.Driver" /></property>
-		<property name="url" value="jdbc:mysql://132.232.86.173:3306/cdut?characterEncoding=utf-8"></property>
+		<property name="url" value="jdbc:mysql://132.232.86.173:3306/tudi?characterEncoding=utf-8"></property>
 		<property name="username" value="root" />
 		<property name="password" value="root" />
 	</bean>
 
 
 	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="org.yufan.mapper"/>
+		<property name="basePackage" value="org.yufan.sso.mapper"/>
 	</bean>
 
 
@@ -23,9 +27,9 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<!-- 数据库连接池 -->
 		<property name="dataSource" ref="dataSource" />
 
-		<!-- 加载mybatis的配置文件 -->
-		<property name="configLocation" value="classpath:SqlMapConfig.xml" />
-		<!--集成分页助手-->
+		<!-- 加载mybatis的配置文件
+		<property name="configLocation" value="classpath:SqlMapConfig.xml" />-->
+
 		<property name="plugins">
 			<array>
 				<bean class="com.github.pagehelper.PageInterceptor">
@@ -42,7 +46,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	<!-- 配置扫描包 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!-- 指定扫描的包 -->
-		<property name="basePackage" value="org.yufan.mapper" />
+		<property name="basePackage" value="org.yufan.sso.mapper" />
 	</bean>
 
 </beans>

@@ -15,13 +15,13 @@
     <title>订单结算页 -羽帆商城</title>
 	<!--结算页面样式-->	
 	<link rel="stylesheet" type="text/css" href="/css/base.css" media="all" />
-    <link type="text/css" rel="stylesheet"  href="/css/order-commons.css" source="widget"/>	
+    <link type="text/css" rel="stylesheet" href="/css/order-commons.css" source="widget"/>
 	<script type="text/javascript" src="/js/jquery-1.6.4.js"></script>
 	<script type="text/javascript" src="/js/base.js"></script>	
 	<script type="text/javascript" src="/js/order.common.js"></script>
 	<script type="text/javascript" src="/js/jquery.checkout.js"></script>
 </head>	<body id="mainframe">
-<jsp:include page="../commons/shortcut.jsp" />
+<jsp:include page="../WEB-INF/commons/shortcut.jsp" />
 <!--shortcut end-->
 
 <div class="w w1 header clearfix">
@@ -744,7 +744,7 @@ $('.online-payment')
 <!-- 不支持自提商品列表隐藏域  -->
 <script id="noSupSkus_hideDiv" type="text/temp">&nbsp;</script>
 		<!-- footer start -->
-<jsp:include page="../commons/footer.jsp" />
+<jsp:include page="../WEB-INF/commons/footer.jsp" />
 <!-- footer end -->
 	<script type="text/javascript" src="/js/json2.js"></script>
 	<script type="text/javascript" src="/js/payAndShipment.js"></script>

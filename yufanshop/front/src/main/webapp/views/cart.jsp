@@ -19,7 +19,7 @@
    </script>
 <body> 
 <!--shortcut start-->
-<jsp:include page="../commons/shortcut.jsp" />
+<jsp:include page="../WEB-INF/commons/shortcut.jsp" />
 <!--shortcut end-->
 <div class="w w1 header clearfix">
 	<div id="logo"><a href="http://www.yufan.com/"><img clstag="clickcart|keycount|xincart|logo" src="/images/yufan-logo.gif" title="返回羽帆商城首页" alt="返回羽帆商城首页"></a></div>
@@ -148,7 +148,7 @@
 
 <script type="text/javascript" src="/js/base-v1.js"></script>
 <!-- footer start -->
-<jsp:include page="../commons/footer.jsp" />
+<jsp:include page="../WEB-INF/commons/footer.jsp" />
 <!-- footer end -->
 
 <!-- 购物车相关业务 -->
