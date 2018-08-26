@@ -28,7 +28,7 @@
 </head>
 <body>
 <!-- header start -->
-<jsp:include page="../WEB-INF/commons/header.jsp" />
+<jsp:include page="../commons/header.jsp" />
 <!-- header end -->
 <div class="w">
 <div id="o-slide">
@@ -361,7 +361,7 @@ pageConfig.DATA_Tabs = {"1615":{"1":{"d":"g15\/M00\/13\/1E\/rBEhWFJ4sNUIAAAAAAHJ
 </script>
 
 <!-- footer start -->
-<jsp:include page="../WEB-INF/commons/footer.jsp" />
+<jsp:include page="../commons/footer.jsp" />
 <!-- footer end -->
  
 <script type="text/javascript" src="/js/home.js" charset="utf-8"></script>

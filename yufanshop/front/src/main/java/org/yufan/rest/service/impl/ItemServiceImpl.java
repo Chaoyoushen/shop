@@ -5,6 +5,7 @@ import com.alibaba.druid.util.StringUtils;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.yufan.bean.Item;
 import org.yufan.bean.ItemDesc;
 import org.yufan.common.HttpClientUtil;
@@ -19,10 +20,11 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+@Service
 public class ItemServiceImpl implements ItemService {
 
-    private static final String ITEM_URL="http://admin.chaoy.com/rest/rpc/item/";
-    private static final String ITEM_DESC_URL="http://admin.chaoy.com/rest/rpc/item/desc/";
+    private static final String ITEM_URL="http://admin.yufan.com/rest/rpc/item/";
+    private static final String ITEM_DESC_URL="http://admin.yufan.com/rest/rpc/item/desc/";
     @Autowired
     JedisService jedisService;
 

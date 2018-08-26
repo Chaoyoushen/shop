@@ -18,7 +18,7 @@
 <body>
 <script type="text/javascript" src="/js/base-2011.js" charset="utf-8"></script>
 <!-- header start -->
-<jsp:include page="../WEB-INF/commons/header.jsp" />
+<jsp:include page="../commons/header.jsp" />
 <!-- header end -->
 
 <div id="container">
@@ -218,7 +218,7 @@
 </div>
 
 <!-- footer start -->
-<jsp:include page="../WEB-INF/commons/footer.jsp" />
+<jsp:include page="../commons/footer.jsp" />
 <!-- footer end -->
 </body>
 </html>

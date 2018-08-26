@@ -3,22 +3,27 @@ package org.yufan.sso.controller;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.yufan.bean.User;
 import org.yufan.common.Result;
 import org.yufan.common.ResultUtils;
+import org.yufan.exception.MyException;
 import org.yufan.sso.service.JedisService;
 import org.yufan.sso.service.UserService;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 
-
-@RequestMapping("/user")
+@RequestMapping("/sso")
 @Controller
 public class UserController {
 
@@ -28,54 +33,42 @@ public class UserController {
     @Autowired
     private JedisService jedisService;
 
-    @RequestMapping("/register")
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
-    public Result register(@Valid User user, BindingResult bindingResult){
+    public ResponseEntity<Result> register(@Valid User user, BindingResult bindingResult)throws MyException {
 
         if(bindingResult.hasErrors()){
-            String message =bindingResult.toString();
-            return ResultUtils.buildFail(100,message);
+            List<ObjectError> errors = bindingResult.getAllErrors();
+            List<String> list= new ArrayList<>();
+            for (ObjectError error:errors) {
+                String msg=error.getDefaultMessage();
+                list.add(msg);
+            }
+            String message =StringUtils.join(list,",");
+            return ResponseEntity.ok(ResultUtils.buildFail(105,message));
         }
-        userService.register(user);
-        return ResultUtils.buildSuccess();
+
+        return ResponseEntity.ok(userService.register(user));
     }
 
 
     @RequestMapping("/login")
     @ResponseBody
-    public String login(String username,String password){
-        if(StringUtils.isEmpty(username)||StringUtils.isEmpty(password)){
-            return "name or password null";
-        }
-        User record =new User();
-        record.setUsername(username);
-        record.setPassword(password);
-        User user =userService.queryByUser(username);
-        if(user==null){
-            return "用户名或密码错误";
-        }
-        return userService.login(user);
+    public ResponseEntity<Result> login(User user){
+
+        return ResponseEntity.ok(userService.login(user));
     }
 
     @RequestMapping("/check")
     @ResponseBody
-    public String check(String token){
-        if(jedisService.get("USER_LOGIN"+token)==null){
-            return "please re-login";
-        }else {
-            return "you are login-in";
-        }
+    public Result check(String token){
+        return userService.check(token);
     }
 
     @RequestMapping("/logout")
     @ResponseBody
-    public String logout(String token){
-        if(jedisService.get("USER_LOGIN"+token)==null){
-            return "no information";
-        }else{
-            jedisService.del("USER_LOGIN"+token);
-            return "success";
-        }
+    public Result logout(String token){
+        return userService.logout(token);
     }
 
 

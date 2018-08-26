@@ -24,26 +24,24 @@
 </head>
 <body id="mainframe">
 <!--shortcut start-->
-<jsp:include page="../WEB-INF/commons/shortcut.jsp" />
+<jsp:include page="../commons/shortcut.jsp" />
 <!--shortcut end-->
 	<form id="orderForm" class="hide">
 		<input type="hidden" name="paymentType" value="1"/>
-		<c:forEach items="${carts }" var="cart" varStatus="status">
-			<c:set var="totalPrice"  value="${ totalPrice + (cart.itemPrice * cart.num)}"/>
-			<input type="hidden" name="orderItems[${status.index}].itemId" value="${cart.itemId}"/>
-			<input type="hidden" name="orderItems[${status.index}].num" value="${cart.num }"/>
-			<input type="hidden" name="orderItems[${status.index}].price" value="${cart.itemPrice}"/>
-			<input type="hidden" name="orderItems[${status.index}].totalFee" value="${cart.itemPrice * cart.num}"/>
-			<input type="hidden" name="orderItems[${status.index}].title" value="${cart.itemTitle}"/>
-			<input type="hidden" name="orderItems[${status.index}].picPath" value="${cart.itemImage}"/>
-		</c:forEach>
-		<input type="hidden" name="payment" value="<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${totalPrice/1000 }"/>"/>
-		<input type="hidden" name="orderShipping.receiverName" value="张志君"/>
-		<input type="hidden" name="orderShipping.receiverMobile" value="15800807944"/>
+			<c:set var="totalPrice"  value="${ item.price}"/>
+			<input type="hidden" name="orderItems[0].itemId" value="${item.id}"/>
+			<input type="hidden" name="orderItems[0].num" value="1"/>
+			<input type="hidden" name="orderItems[0].price" value="${item.price}"/>
+			<input type="hidden" name="orderItems[0].totalFee" value="${item.price}"/>
+			<input type="hidden" name="orderItems[0].title" value="${item.title}"/>
+			<input type="hidden" name="orderItems[0].picPath" value="${item.image}"/>
+		<input type="hidden" name="payment" value="<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${totalPrice/100 }"/>"/>
+		<input type="hidden" name="orderShipping.receiverName" value="花和尚"/>
+		<input type="hidden" name="orderShipping.receiverMobile" value="15800000000"/>
 		<input type="hidden" name="orderShipping.receiverState" value="上海"/>
 		<input type="hidden" name="orderShipping.receiverCity" value="上海"/>
 		<input type="hidden" name="orderShipping.receiverDistrict" value="闵行区"/>
-		<input type="hidden" name="orderShipping.receiverAddress" value="浦江镇 江玮路450弄42号402（闵浦新苑五村）"/>
+		<input type="hidden" name="orderShipping.receiverAddress" value="三鲁公路3279号 明浦广场 3号楼 205室 "/>
 	</form>
 	<div class="w w1 header clearfix">
 		<div id="logo"><a href="http://www.yufan.com/"><img src="/images/yufan-logo.gif" alt="羽帆商城" /></a></div>
@@ -73,10 +71,10 @@
 							 <div class="sbox">
 	<div class="s-content">
 	 <p>
-	  		张志君 &nbsp; 15800807944 &nbsp;  &nbsp; 
+	  		花和尚 &nbsp; 15800007000 &nbsp;  &nbsp; 
 		<br/>
 				   上海 闵行区 外环以外  &nbsp;
-				浦江镇 江玮路450弄42号402（闵浦新苑五村）
+				三鲁公路3279号 明浦广场 3号楼 205室 
 			  	  </p>
 	</div>
 </div>						</div><!--@end div#consignee-->
@@ -204,7 +202,7 @@
 				  </td>
 				  <td class="p-price">
 					<strong>
-						￥<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${item.price/1000 }"/>
+						￥<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${item.price/100 }"/>
 					</strong>
 				  </td>
 				  <td class="p-promotion">&nbsp;</td>
@@ -219,31 +217,29 @@
 										<div class="review-tbody">
 		<table class="order-table">
 			<tbody>
-			<c:forEach items="${carts }" var="cart">
 				  <tr>
 				    <td class="fore1">
 					   <div class="p-goods">
-						  <div class="p-img"><a href="http://www.yufan.com/item/${cart.itemId}.html" target='_blank'><img width="52" height="52" src="${cart.itemImage}"></a></div>
+						  <div class="p-img"><a href="http://www.yufan.com/item/${item.id}.html" target='_blank'><img width="52" height="52" src="${item.images[0]}"></a></div>
 							 <div class="p-detail">
 								<div class="p-name">
-									<a href="http://www.yufan.com/item/${cart.itemId}.html" target='_blank'>
-										${cart.itemTitle }
+									<a href="http://www.yufan.com/item/${item.id}.html" target='_blank'>
+										${item.title }
 								    </a>
 								</div>
-								<div class="p-more">商品编号：${cart.itemId}<br />
+								<div class="p-more">商品编号：${item.id}<br />
 																	<!-- icon图标预留-->
 								<span id="promise_1057746" class="promise411"></span>
 								</div>
 							 </div>
 						   </div>
 					</td>
-					  				  <td class="p-price"><strong>￥<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${cart.itemPrice / 1000 }"/></strong>
+					  				  <td class="p-price"><strong>￥<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${item.price / 100 }"/></strong>
 					  </td>
 					  				  <td class="p-promotion"> </td>
-					  <td class="fore2">x ${cart.num }</td>
+					  <td class="fore2">x 1</td>
 					  <td class="fore2 p-inventory"  skuId="1057746">有货</td>
 				   </tr>
-			   </c:forEach>
 			</tbody>
         </table>
 	 </div>
@@ -259,13 +255,13 @@
 																							</div>
 											<!--  预售 计算支付展现方式 begin -->
 											<div class="statistic fr">
-                                                <div class="list"><span><em id="span-skuNum">1</em> 件商品，总商品金额：</span><em class="price" id="warePriceId" v="<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${totalPrice/1000 }"/>">￥<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${totalPrice/1000 }"/></em></div>
+                                                <div class="list"><span><em id="span-skuNum">1</em> 件商品，总商品金额：</span><em class="price" id="warePriceId" v="<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${totalPrice/100 }"/>">￥<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${totalPrice/100 }"/></em></div>
                                                 <div class="list"><span>返现：</span><em class="price" id="cachBackId" v="0.00"> -￥0.00</em></div>
                                                 <div class="list" id="showFreightPrice" style="padding-left:140px;">
                                                 		<span id="freightSpan"  style="width:40px;"   >运费：</span> 
                                                 		<em class="price" id="freightPriceId"  > ￥0.00</em>
                                                 </div>
-                                                <div class="list"><span>应付总额：</span><em id="sumPayPriceId" class="price"> ￥<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${totalPrice/1000 }"/></em></div>			
+                                                <div class="list"><span>应付总额：</span><em id="sumPayPriceId" class="price"> ￥<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${totalPrice/100 }"/></em></div>			
 											</div>
 											<div class="span clr"></div>
 											
@@ -285,7 +281,7 @@
                                         提交订单
                                         <b></b>
                                 </button>
-																	<span class="total">应付总额：<strong id="payPriceId">￥<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${totalPrice/1000 }"/></strong>元 
+																	<span class="total">应付总额：<strong id="payPriceId">￥<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${totalPrice/100 }"/></strong>元 
 	    							</span>
 																<div class="checkout-submit-tip" id="changeAreaAndPrice" style="display: none;">由于地址更换，价格可能发生变化，请核对后再提交订单</div>
 								<div style="display:none" id="factoryShipCodShowDivBottom" class="dispatching">
@@ -306,7 +302,7 @@
    <div class="w">
 
 	<!-- links start -->
-    <jsp:include page="../WEB-INF/commons/footer-links.jsp"></jsp:include>
+    <jsp:include page="../commons/footer-links.jsp"></jsp:include>
     <!-- links end -->
 </div><!-- footer end -->
 	<script type="text/javascript" src="/js/order.js"></script>

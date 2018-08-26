@@ -18,9 +18,9 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
         <constructor-arg name="poolConfig" ref="JedisPoolConfig"/>
     </bean>
 
-    <!--配置jedisService-->
+    <!--配置jedisService
     <bean id="jeidsService" class="org.yufan.rest.service.impl.JedisServiceImpl">
         <property name="jedisPool" ref="jedisPool"/>
-    </bean>
+    </bean>-->
 
 </beans>

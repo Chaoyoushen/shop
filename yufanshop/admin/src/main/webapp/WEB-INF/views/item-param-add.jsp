@@ -35,7 +35,7 @@
 		</ul>
 	</li>
 </div>
-<script style="text/javascript">
+<script>
 	$(function(){
 		TAOTAO.initItemCat({
 			fun:function(node){
@@ -109,7 +109,7 @@
 					});					
 				}
 			});
-			var url = "/rest/item/param/"+$("#itemParamAddTable [name=cid]").val();
+			var url = "/rest/item/param/save/"+$("#itemParamAddTable [name=cid]").val();
 			$.post(url,{"paramData":JSON.stringify(params)},function(data){
 				$.messager.alert('提示','新增商品规格成功!',undefined,function(){
 					$(".panel-tool-close").click();

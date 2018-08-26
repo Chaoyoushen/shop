@@ -1,5 +1,6 @@
 package org.yufan.common;
 
+
 public class ResultUtils {
 
 
@@ -23,6 +24,15 @@ public class ResultUtils {
         return result;
     }
 
+    public static Result buildSuccess(Integer code,String message,Object obj){
+        Result result=new Result();
+        result.setCode(code);
+        result.setStatus("success");
+        result.setMessage(message);
+        result.setData(obj);
+        return result;
+    }
+
 
     /**
      * 返回失败
@@ -34,6 +44,9 @@ public class ResultUtils {
         result.setMessage(message);
         return result;
     }
+
+
+
 
 
 }

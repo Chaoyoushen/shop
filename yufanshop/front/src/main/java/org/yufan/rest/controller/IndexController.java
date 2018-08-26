@@ -14,6 +14,11 @@ public class IndexController {
         return "index";
     }
 
+    @RequestMapping(value = "/user/{page}.html")
+    public String toPage(@PathVariable("page")String page){
+        return page;
+    }
+
 
 
 }

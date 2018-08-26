@@ -174,7 +174,7 @@
                 </div>
         </div>
         <div class="free-regist">
-            <span><a href="http://www.yufan.com/user/register.html" clstag="passport|keycount|login|08">免费注册&gt;&gt;</a></span>
+            <span><a href="http://www.yufan.com:8080/user/register.html" clstag="passport|keycount|login|08">免费注册&gt;&gt;</a></span>
         </div>
     </div>
 </form>
@@ -183,7 +183,7 @@
 </div>
 <div class="w">
 	<!-- links start -->
-    <jsp:include page="../WEB-INF/commons/footer-links.jsp"></jsp:include>
+    <jsp:include page="../commons/footer-links.jsp"></jsp:include>
     <!-- links end -->
 </div>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/login/login.js"></script>

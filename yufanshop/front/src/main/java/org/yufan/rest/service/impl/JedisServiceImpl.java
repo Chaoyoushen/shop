@@ -1,9 +1,11 @@
 package org.yufan.rest.service.impl;
 
+import org.springframework.stereotype.Service;
 import org.yufan.rest.service.JedisService;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
+@Service
 public class JedisServiceImpl implements JedisService {
 
     public JedisPool getJedisPool() {

@@ -384,7 +384,7 @@ $("#loginsubmit").click(function () {
                     if (data.status == "success") {
 
                         //把服务器的token保存在cookie中
-                        document.cookie = 'token='+data.data.toString()+';path=/;';
+                        document.cookie = 'token='+data.data+';path=/;';
                     	data.success = "http://www.yufan.com:8080/user/index.html";
                         var isIE = !-[1,];
                         if (isIE) {

@@ -11,7 +11,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	<!-- 配置数据库连接池 -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
 		<property name="driver"><bean class="com.mysql.jdbc.Driver" /></property>
-		<property name="url" value="jdbc:mysql://132.232.86.173:3306/tudi?characterEncoding=utf-8"></property>
+		<property name="url" value="jdbc:mysql://132.232.86.173:3306/cdut?characterEncoding=utf-8"></property>
 		<property name="username" value="root" />
 		<property name="password" value="root" />
 	</bean>

@@ -2,18 +2,22 @@ package org.yufan.sso.service;
 
 
 import org.yufan.bean.User;
-import org.yufan.exception.MyException;
+import org.yufan.common.Result;
+
 
 public interface UserService {
 
 
-    public String register(User user);
+    public Result register(User user);
 
-    public String login(User user);
+    public Result login(User user);
 
-    public String queryUserByToken(String token);
+    public Result logout(String token);
 
-    public User queryByUser(String username);
+    public Result check(String token);
+
+
+
 
 
 

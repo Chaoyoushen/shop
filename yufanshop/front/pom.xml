@@ -22,7 +22,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.yufan</groupId>
+            <groupId>org.yufan.shop</groupId>
             <artifactId>core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

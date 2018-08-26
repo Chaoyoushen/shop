@@ -75,7 +75,7 @@ function addToFavorite() {
     }
 }</script>
 <!--shortcut start-->
-<jsp:include page="../WEB-INF/commons/shortcut.jsp" />
+<jsp:include page="../commons/shortcut.jsp" />
 <!--shortcut end-->
 <div class="w" id="logo">
     <div>
@@ -96,7 +96,7 @@ function addToFavorite() {
         <span style="text-align: right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="flk13"
                                                                                onclick="javascript:location.href=&quot;http://en.360buy.com&quot;+location.search;"
                                                                                href="#">English</a></span> <span>我已经注册，现在就&nbsp;<a
-                href="http://www.taotao.com/user/login.html"
+                href="http://127.0.0.1:8080/user/login.html"
                 class="flk13">登录</a></span>
         </div>
     </div>
@@ -266,7 +266,7 @@ function addToFavorite() {
     })(jQuery);</script>
 <div class="w">
 	<!-- links start -->
-    <jsp:include page="../WEB-INF/commons/footer-links.jsp"></jsp:include>
+    <jsp:include page="../commons/footer-links.jsp"></jsp:include>
     <!-- links end -->
 </div>
 <script type="text/javascript" src="/js/register/jd.lib.js"></script>

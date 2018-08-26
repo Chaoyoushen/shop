@@ -4,7 +4,7 @@
 </div>
 <script type="text/javascript">
 	function importItems() {
-		$.post("/rest/item/import",null,function(data){
+		$.post("/rest/importall",null,function(data){
 			if(data.status == "success"){
 				$.messager.alert('提示','导入索引库成功！');
 			} else {

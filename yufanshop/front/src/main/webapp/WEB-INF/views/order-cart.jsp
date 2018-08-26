@@ -21,7 +21,7 @@
 	<script type="text/javascript" src="/js/order.common.js"></script>
 	<script type="text/javascript" src="/js/jquery.checkout.js"></script>
 </head>	<body id="mainframe">
-<jsp:include page="../WEB-INF/commons/shortcut.jsp" />
+<jsp:include page="../commons/shortcut.jsp" />
 <!--shortcut end-->
 
 <div class="w w1 header clearfix">
@@ -744,7 +744,7 @@ $('.online-payment')
 <!-- 不支持自提商品列表隐藏域  -->
 <script id="noSupSkus_hideDiv" type="text/temp">&nbsp;</script>
 		<!-- footer start -->
-<jsp:include page="../WEB-INF/commons/footer.jsp" />
+<jsp:include page="../commons/footer.jsp" />
 <!-- footer end -->
 	<script type="text/javascript" src="/js/json2.js"></script>
 	<script type="text/javascript" src="/js/payAndShipment.js"></script>

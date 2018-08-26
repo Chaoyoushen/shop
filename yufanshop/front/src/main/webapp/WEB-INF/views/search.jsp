@@ -19,7 +19,7 @@
 <body>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/base-2011.js" charset="utf-8"></script>
 <!-- header start -->
-<jsp:include page="../WEB-INF/commons/header.jsp" />
+<jsp:include page="../commons/header.jsp" />
 <!-- header end -->
 <div class="w main">
 	<div class="crumb">全部结果&nbsp;&gt;&nbsp;<strong>"${query}"</strong></div>
@@ -43,8 +43,8 @@
 <c:forEach items="${itemList}" var="item">
 <li class="item-book" bookid="11078102">
 	<div class="p-img">
-		<a target="_blank" href="http://www.chaoy.com/item/${item.id }.html">
-			<img width="160" height="160" data-img="1" data-lazyload="${item.images[0]}" />
+		<a target="_blank" href="http://www.yufan.com/item/${item.id }.html">
+			<img width="160" height="160" data-img="1" data-lazyload="${item.image}" />
 		</a>
 	</div>
 	<div class="p-name">
@@ -65,7 +65,7 @@
 </ul></div>
 </div>
 <!-- footer start -->
-<jsp:include page="../WEB-INF/commons/footer.jsp" />
+<jsp:include page="../commons/footer.jsp" />
 <!-- footer end -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.hashchange.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/search_main.js"></script>
