@@ -17,12 +17,10 @@ public class FroSearchController {
     @RequestMapping("/search")
     public String search(@RequestParam("q")String query, @RequestParam(defaultValue = "1") Integer page, Model model){
         SearchResult searchResult=froSearchService.search(query,page);
-
         model.addAttribute("query",query);
         model.addAttribute("totalPages",searchResult.getPageCount());
         model.addAttribute("itemList",searchResult.getItemList());
         model.addAttribute("page",page);
-
         return "search";
     }
 }

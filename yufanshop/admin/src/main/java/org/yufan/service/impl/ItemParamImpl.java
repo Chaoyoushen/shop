@@ -19,7 +19,7 @@ public class ItemParamImpl extends BaseServiceImpl<ItemParam> implements ItemPar
         itemParam.setItemCatId(cid);
         List<ItemParam> list= queryListByCondition(itemParam);
         if(list!=null&&list.size()>0){
-            return ResultUtils.buildSuccess(200,null,list.get(0));
+            return ResultUtils.buildSuccess(list.get(0));
         }
         return null;
     }

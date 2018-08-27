@@ -14,12 +14,11 @@ import org.yufan.common.ResultUtils;
 import org.yufan.service.SearchService;
 
 @Controller
-@RequestMapping("/search")
 public class SearchController {
     @Autowired
     private SearchService searchService;
 
-    @RequestMapping(value = "/query",method = RequestMethod.GET)
+    @RequestMapping(value = "/search",method = RequestMethod.GET)
     @ResponseBody
     public Result search(@RequestParam("q")String query,@RequestParam(defaultValue = "1")Integer page,@RequestParam(defaultValue = "60")Integer rows){
         if(StringUtils.isEmpty(query)){

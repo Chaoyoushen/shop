@@ -15,7 +15,12 @@
        <context:component-scan base-package="org.yufan.rest.controller"/>
 
 
-       
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/order/**"/>
+            <bean class="org.yufan.rest.interceptor.LoginInerceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 
     <!--配置日期转换器-->

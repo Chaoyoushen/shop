@@ -17,10 +17,10 @@ public class SearchServiceImpl implements SearchService {
     @Override
     public SearchResult search(String query, Long page, int rows) throws SolrServerException {
         SolrQuery solrQuery=new SolrQuery();
-        solrQuery.setQuery(query);
+        solrQuery.setQuery("*"+query+"*");
         solrQuery.setStart((int)(page-1)*rows);
         solrQuery.setRows(rows);
-        solrQuery.set("df","item_keywords");
+        solrQuery.set("df","item_title");
         solrQuery.setHighlight(true);
         solrQuery.set("id");
         solrQuery.addHighlightField("item_title");
@@ -36,4 +36,6 @@ public class SearchServiceImpl implements SearchService {
         searchResult.setCurrentPage(page);
         return searchResult;
     }
+
+
 }

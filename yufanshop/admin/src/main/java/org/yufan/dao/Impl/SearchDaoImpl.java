@@ -48,7 +48,6 @@ public class SearchDaoImpl implements SearchDao {
             item.setPrice((Long) solrDocument.get("item_price"));
             item.setSellPoint((String) solrDocument.get("item_sell_point"));
             item.setCid(Long.getLong(solrDocument.get("item_category_name").toString()));
-
             itemList.add(item);
         }
 

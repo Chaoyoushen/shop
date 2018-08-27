@@ -23,19 +23,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@RequestMapping("/sso")
+
 @Controller
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private JedisService jedisService;
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<Result> register(@Valid User user, BindingResult bindingResult)throws MyException {
+    public ResponseEntity<Result> register(@Valid User user, BindingResult bindingResult){
 
         if(bindingResult.hasErrors()){
             List<ObjectError> errors = bindingResult.getAllErrors();

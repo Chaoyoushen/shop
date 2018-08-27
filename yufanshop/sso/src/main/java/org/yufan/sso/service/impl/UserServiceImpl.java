@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
         user.setCreated(new Date());
         user.setUpdated(user.getCreated());
         userMapper.insertSelective(user);
-        return ResultUtils.buildSuccess(200,"ok",null);
+        return ResultUtils.buildSuccess("register success");
 
     }
 
@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
         String token= DigestUtils.md5Hex(new Date().toString()+user.getUsername());
         jedisService.set("USER_LOGIN" +token, JsonUtils.objectToJson(user));
         jedisService.expire("USER_LOGIN" +token,60*60*2);
-        return ResultUtils.buildSuccess(200,null,token);
+        return ResultUtils.buildSuccess(token);
     }
 
     @Override
@@ -61,15 +61,15 @@ public class UserServiceImpl implements UserService {
        String value= jedisService.get("USER_LOGIN" +token);
        if(value==null) return ResultUtils.buildFail(104,"has not login");
        jedisService.del("USER_LOGIN" +token);
-       return ResultUtils.buildSuccess(200,"has login",null);
+       return ResultUtils.buildSuccess("logout success");
     }
 
     @Override
     public Result check(String token) {
         if(jedisService.get("USER_LOGIN" +token)!=null){
-            return ResultUtils.buildSuccess(200,"has login",null);
+            return ResultUtils.buildSuccess(jedisService.get("USER_LOGIN" +token));
         }
-        return ResultUtils.buildFail(106,"need re-log");
+        return ResultUtils.buildFail(301,null);
     }
 
 

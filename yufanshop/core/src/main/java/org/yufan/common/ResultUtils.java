@@ -9,7 +9,7 @@ public class ResultUtils {
      */
     public static Result buildSuccess(){
         Result result=new Result();
-        result.setStatus("success");
+        result.setStatus(200);
         return result;
     }
 
@@ -19,16 +19,7 @@ public class ResultUtils {
      */
     public static Result buildSuccess(Object obj){
         Result result=new Result();
-        result.setStatus("success");
-        result.setData(obj);
-        return result;
-    }
-
-    public static Result buildSuccess(Integer code,String message,Object obj){
-        Result result=new Result();
-        result.setCode(code);
-        result.setStatus("success");
-        result.setMessage(message);
+        result.setStatus(200);
         result.setData(obj);
         return result;
     }
@@ -37,11 +28,10 @@ public class ResultUtils {
     /**
      * 返回失败
      */
-    public static Result buildFail(Integer code,String message){
+    public static Result buildFail(Integer status,Object obj){
         Result result=new Result();
-        result.setStatus("fail");
-        result.setCode(code);
-        result.setMessage(message);
+        result.setStatus(status);
+        result.setData(obj);
         return result;
     }
 
