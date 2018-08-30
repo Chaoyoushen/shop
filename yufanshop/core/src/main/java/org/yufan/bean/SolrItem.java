@@ -1,6 +1,8 @@
 package org.yufan.bean;
 
-public class SolrItem {
+import java.io.Serializable;
+
+public class SolrItem implements Serializable {
     public String getId() {
         return id;
     }

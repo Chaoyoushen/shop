@@ -3,10 +3,11 @@ package org.yufan.bean;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 
 @Table(name="tb_item_param")
-public class ItemParam {
+public class ItemParam implements Serializable {
         @Id
         @Column(name="id")
         private Long id;

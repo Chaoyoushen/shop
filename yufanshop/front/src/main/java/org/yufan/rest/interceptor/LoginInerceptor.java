@@ -21,7 +21,7 @@ public class LoginInerceptor implements HandlerInterceptor {
         String token=CookieUtil.getById(httpServletRequest,"token");
         User user=userService.getUserByToken(token);
         if(null==user){
-            httpServletResponse.sendRedirect("www.chaoyous.cn/login?redirect"+httpServletRequest.getRequestURI());
+            httpServletResponse.sendRedirect("www.chaoyous.cn/login?redirect="+httpServletRequest.getRequestURI());
             return false;
         }
         return true;

@@ -2,9 +2,10 @@ package org.yufan.bean;
 
 import org.yufan.bean.Item;
 
+import java.io.Serializable;
 import java.util.List;
 //返回结果的Pojo
-public class SearchResult {
+public class SearchResult implements Serializable {
     public List<Item> getItemList() {
         return itemList;
     }

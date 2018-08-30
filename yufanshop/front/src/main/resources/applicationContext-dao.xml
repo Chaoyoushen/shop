@@ -18,7 +18,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 
 
 	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="org.yufan.mapper"/>
+		<property name="basePackage" value="org.yufan.rest.mapper"/>
 	</bean>
 
 
@@ -43,10 +43,10 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		</property>
 	</bean>
 
-	<!-- 配置扫描包 -->
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<!-- 指定扫描的包 -->
+	<!-- 配置扫描包
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+		<!-- 指定扫描的包
 		<property name="basePackage" value="org.yufan.rest.mapper" />
-	</bean>
+	</bean>-->
 
 </beans>

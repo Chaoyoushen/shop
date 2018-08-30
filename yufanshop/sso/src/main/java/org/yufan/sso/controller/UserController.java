@@ -18,6 +18,8 @@ import org.yufan.exception.MyException;
 import org.yufan.sso.service.JedisService;
 import org.yufan.sso.service.UserService;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;

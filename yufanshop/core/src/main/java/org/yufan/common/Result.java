@@ -1,6 +1,8 @@
 package org.yufan.common;
 
-public class Result<T> {
+import java.io.Serializable;
+
+public class Result<T> implements Serializable {
 
 
     public Integer getStatus() {

@@ -12,13 +12,13 @@ import java.util.Map;
 @Service
 public class FroSearchServiceImpl implements FroSearchService {
 
-    String SEARCH_URL="http://admin.yufan.com/rest/search/query";
+    String SEARCH_URL="http://admin.chaoyous.cn/rest/search";
     @Override
     public SearchResult search(String query, int page) {
         String json=HttpClientUtil.doGet(SEARCH_URL+"?q="+query+"&page="+page);
         String jsonData=json.substring(json.indexOf("data")+6,json.length()-1);
         SearchResult searchResult=JsonUtils.jsonToPojo(jsonData,SearchResult.class);
-        int i=0;
+
         return searchResult;
 
     }

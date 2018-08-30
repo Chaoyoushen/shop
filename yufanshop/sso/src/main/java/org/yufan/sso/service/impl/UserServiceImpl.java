@@ -1,9 +1,11 @@
 package org.yufan.sso.service.impl;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.yufan.bean.User;
+import org.yufan.common.CookieUtil;
 import org.yufan.common.JsonUtils;
 import org.yufan.common.Result;
 import org.yufan.common.ResultUtils;
@@ -11,7 +13,11 @@ import org.yufan.sso.mapper.UserMapper;
 import org.yufan.sso.service.JedisService;
 import org.yufan.sso.service.UserService;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 
 @Service
@@ -51,9 +57,12 @@ public class UserServiceImpl implements UserService {
             return ResultUtils.buildFail(102,"wrong name or password");
         }
         String token= DigestUtils.md5Hex(new Date().toString()+user.getUsername());
-        jedisService.set("USER_LOGIN" +token, JsonUtils.objectToJson(user));
+        jedisService.set("USER_LOGIN" +token, tmp.getId().toString());
         jedisService.expire("USER_LOGIN" +token,60*60*2);
-        return ResultUtils.buildSuccess(token);
+        Map<String,String> map=new HashMap<>();
+        map.put("token",token);
+        map.put("user_id", StringUtils.join(tmp.getId()));
+        return ResultUtils.buildSuccess(map);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package org.yufan.rest.service;
+/*package org.yufan.rest.service;
 
 import org.yufan.common.Result;
 import org.yufan.bean.CartItem;
@@ -8,8 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 public interface CartService {
-    Result addCartItem(Long itemid, Long num, HttpServletRequest request, HttpServletResponse response);
+    void addCartItem(Long itemid, Long num, HttpServletRequest request, HttpServletResponse response);
 
     List<CartItem> getCartItemList(HttpServletRequest request,HttpServletResponse response);
     Result delCartItem(Long itemId,HttpServletRequest request,HttpServletResponse response);
-}
+
+    public void clearCart(Long userId);
+}*/

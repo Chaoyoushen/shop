@@ -4,6 +4,9 @@ package org.yufan.sso.service;
 import org.yufan.bean.User;
 import org.yufan.common.Result;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 
 public interface UserService {
 

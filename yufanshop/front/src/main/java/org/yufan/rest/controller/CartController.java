@@ -1,4 +1,4 @@
-package org.yufan.rest.controller;
+/*package org.yufan.rest.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +23,7 @@ public class CartController {
 
     @RequestMapping("/add/{itemId}")
     public String addCart(@PathVariable Long itemId, @RequestParam(defaultValue = "1")Long num, HttpServletRequest request, HttpServletResponse response){
-        Result result=cartService.addCartItem(itemId,num,request,response);
+        //Result result=cartService.addCartItem(itemId,num,request,response);
         return "redirect:/cart/success";
     }
     @RequestMapping("/success")
@@ -44,4 +44,4 @@ public class CartController {
     }
 
 
-}
+}*/

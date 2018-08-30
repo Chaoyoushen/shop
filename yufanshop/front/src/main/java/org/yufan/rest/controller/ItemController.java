@@ -15,8 +15,6 @@ import org.yufan.exception.MyException;
 import org.yufan.rest.service.ItemService;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 @Controller
 @RequestMapping("/item")
 public class ItemController {

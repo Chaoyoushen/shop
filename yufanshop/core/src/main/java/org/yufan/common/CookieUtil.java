@@ -27,6 +27,9 @@ public final class CookieUtil {
 
 
     public static String getById(HttpServletRequest request,String cookieName) {
+        if(request.getCookies()==null){
+            return null;
+        }
         Cookie cookies[] = request.getCookies();
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals(cookieName)) {

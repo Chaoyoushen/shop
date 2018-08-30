@@ -100,30 +100,6 @@
 		
 		$("#itemeEditForm [name=itemParams]").val(paramJson);
 		
-		//提交到后台的RESTful
-		$.ajax({
-		   type: "POST",
-		   url: "/rest/item/update",
-		   data: $("#itemeEditForm").serialize(),
-			dataType:"json",
-		   success: function(msg){
 
-
-		       if(msg.status==200){
-                   $.messager.alert('提示','修改商品成功!','info',function(){
-                       $("#itemEditWindow").window('close');
-                       $("#itemList").datagrid("reload");
-                   });
-			   }else{
-                   $.messager.alert('提示',msg.message);
-			   }
-
-
-
-		   },
-		   error: function(){
-			   $.messager.alert('提示','修改商品失败!');
-		   }
-		});
 	}
 </script>

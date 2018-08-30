@@ -34,7 +34,7 @@ public class JsonUtils {
      * @param  beanType 对象中的object类型
      * @return
      */
-    public static <T> T jsonToPojo(String jsonData, Class<T> beanType) {
+    public static <T>T jsonToPojo(String jsonData, Class<T> beanType) {
         try {
             T t = MAPPER.readValue(jsonData, beanType);
             return t;
