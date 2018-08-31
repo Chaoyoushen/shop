@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.yufan.result.PicUploadResult;
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -18,39 +17,26 @@ import java.util.UUID;
 @RequestMapping("/pic")
 public class UploadController {
 
-
-
-
     @RequestMapping(value = "/upload",method = RequestMethod.POST)
     @ResponseBody
-    public PicUploadResult   upload(@RequestParam MultipartFile uploadFile) throws IOException {
-
-
-
+    public PicUploadResult upload(@RequestParam MultipartFile uploadFile) throws IOException {
             //上传文件的路径
             String path = "//usr//local//yufanimage";
-
             //获取后缀
             String filename = uploadFile.getOriginalFilename();
             String end = filename.substring(filename.lastIndexOf("."));
             //生成新的文件名
             String uuid_name = UUID.randomUUID().toString().replace("-", "") + end;
-
             File file = new File(path + File.separator + uuid_name);
-
             //保存图片到磁盘
             uploadFile.transferTo(file);
-
-
-        BufferedImage image=ImageIO.read(file);
-
-        if(image!=null){
-
-            //上传成功!
-            return PicUploadResult.buildSuccess("http://image.chaoyous.cn/"+uuid_name,image.getWidth()+"",image.getHeight()+"");
-        }else{
-            return PicUploadResult.buildFail("图片上传失败");
-        }
+            BufferedImage image=ImageIO.read(file);
+            if(image!=null){
+                //上传成功!
+                return PicUploadResult.buildSuccess("http://image.chaoyous.cn/"+uuid_name,image.getWidth()+"",image.getHeight()+"");
+            }else{
+                return PicUploadResult.buildFail("图片上传失败");
+            }
 
 
 

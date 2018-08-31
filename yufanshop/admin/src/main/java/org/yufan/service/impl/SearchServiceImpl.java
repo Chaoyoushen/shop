@@ -24,7 +24,7 @@ public class SearchServiceImpl implements SearchService {
         solrQuery.setHighlight(true);
         solrQuery.set("id");
         solrQuery.addHighlightField("item_title");
-        solrQuery.setHighlightSimplePre("<em style=\"coler:red\">");
+        solrQuery.setHighlightSimplePre("<em style=\"color:red\">");
         solrQuery.setHighlightSimplePost("</em>");
         SearchResult searchResult=searchDao.search(solrQuery);
         Long recordCount =searchResult.getRecordCount();

@@ -15,11 +15,10 @@ public class CartController {
     @Autowired
     private CartService cartService;
 
-    @RequestMapping("/add")
-    @ResponseBody
+        @RequestMapping("/add")
+        @ResponseBody
         public Result addCart(Long user_id,Long item_id,Long num){
-            cartService.addItemToCart(item_id,user_id,num);
-            return ResultUtils.buildSuccess();
+            return cartService.addItemToCart(item_id,user_id,num);
         }
         @RequestMapping("/del")
         @ResponseBody

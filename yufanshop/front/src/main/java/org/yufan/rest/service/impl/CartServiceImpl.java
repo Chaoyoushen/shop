@@ -85,3 +85,33 @@ public class CartServiceImpl implements CartService {
 
     }
 }*/
+package org.yufan.rest.service.impl;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.yufan.bean.Item;
+import org.yufan.common.*;
+import org.yufan.bean.CartItem;
+import org.yufan.rest.mapper.CartMapper;
+import org.yufan.rest.service.CartService;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
+@Service
+public class CartServiceImpl implements CartService {
+
+    @Autowired
+    private CartMapper cartMapper;
+    @Override
+    public void deleteByCartId(String id) {
+        cartMapper.deleteByPrimaryKey(Long.parseLong(id));
+    }
+
+    @Override
+    public CartItem getCartById(Long id) {
+        return cartMapper.selectByPrimaryKey(id);
+    }
+}

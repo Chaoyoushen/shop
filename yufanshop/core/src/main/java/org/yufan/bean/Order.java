@@ -51,12 +51,6 @@ public class Order implements Serializable {
     @Column(name="create_time")
     private Date create_time;
 
-
-
-
-
-
-
     public Date getCreate_time() {
         return create_time;
     }

@@ -13,4 +13,6 @@ public interface OrderService {
     Result delOrder(String order_id);
 
     Result pay(String token,String order_id);
+
+    Order queryOrderById(String order_id);
 }

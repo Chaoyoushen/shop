@@ -56,11 +56,12 @@ private String ITEM_URL="http://admin.chaoyous.cn/rest/rpc/item/";
         if(result.getData()==null){
             return ResultUtils.buildFail(101,"please login");
         }
+        String user_id=JsonUtils.jsonToPojo(JsonUtils.objectToJson(result.getData()),String.class);
+
         Order order=new Order();
 
 
-
-        order.setUser_id(Long.getLong(result.getData().toString()));
+        order.setUser_id(Long.parseLong(user_id));
         return ResultUtils.buildSuccess(orderMapper.select(order));
     }
     //状态：1、未付款，2、已付款
@@ -95,5 +96,10 @@ private String ITEM_URL="http://admin.chaoyous.cn/rest/rpc/item/";
         userMapper.updateByPrimaryKeySelective(user);
         orderMapper.updateByPrimaryKeySelective(order);
         return ResultUtils.buildSuccess();
+    }
+
+    @Override
+    public Order queryOrderById(String order_id) {
+        return orderMapper.selectByPrimaryKey(order_id);
     }
 }

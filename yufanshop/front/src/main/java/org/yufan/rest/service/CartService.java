@@ -15,3 +15,13 @@ public interface CartService {
 
     public void clearCart(Long userId);
 }*/
+package org.yufan.rest.service;
+
+import org.yufan.bean.CartItem;
+
+import java.util.List;
+
+public interface CartService{
+    public void deleteByCartId(String id);
+    public CartItem getCartById(Long id);
+}

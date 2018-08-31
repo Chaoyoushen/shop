@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.yufan.bean.CartItem;
 import org.yufan.bean.Item;
+import org.yufan.common.Result;
+import org.yufan.common.ResultUtils;
 import org.yufan.mapper.CartMapper;
 import org.yufan.mapper.ItemMapper;
 import org.yufan.service.CartService;
@@ -20,9 +22,9 @@ public class CartServiceImpl implements CartService {
     private CartMapper cartMapper;
 
     @Override
-    public void addItemToCart(Long itemId, Long userId,Long num) {
+    public Result addItemToCart(Long itemId, Long userId, Long num) {
         Item item=itemMapper.selectByPrimaryKey(itemId);
-        if(item==null) return;
+        if(item==null) return ResultUtils.buildFail(100,"no such item");
 
         CartItem cartItem=new CartItem();
         cartItem.setItem_id(itemId);
@@ -36,10 +38,12 @@ public class CartServiceImpl implements CartService {
             cart.setImage(item.getImage().split(",")[0]);
             cart.setPrice(item.getPrice());
             cart.setTitle(item.getTitle());
+            cartMapper.insert(cart);
         }else{
             cart.setNum(cart.getNum()+1);
+            cartMapper.updateByPrimaryKey(cart);
         }
-        cartMapper.insert(cart);
+        return ResultUtils.buildSuccess();
     }
 
     @Override

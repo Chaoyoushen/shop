@@ -42,6 +42,7 @@ public class UserServiceImpl implements UserService {
         user.setPassword(DigestUtils.md5Hex(user.getPassword()));
         user.setCreated(new Date());
         user.setUpdated(user.getCreated());
+        user.setCount(new Long(0));
         userMapper.insertSelective(user);
         return ResultUtils.buildSuccess("register success");
 
